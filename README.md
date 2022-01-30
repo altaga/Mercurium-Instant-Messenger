@@ -11,6 +11,8 @@
 - [Introduction and Problem Statement:](#introduction-and-problem-statement)
 - [Our Solution:](#our-solution)
 - [How it's built:](#how-its-built)
+  - [Intruction 1:](#intruction-1)
+  - [Intruction 2:](#intruction-2)
 - [What's next:](#whats-next)
 - [Team:](#team)
 - [Acknowledgements and References:](#acknowledgements-and-references)
@@ -50,6 +52,45 @@ Todo este demo corre sobre la red devnet, con el fin de poder realizar las prueb
 Todo nuestro chat esta basado en el uso de transacciones e interaccion con un programa de memo desplegado en la blockchain de solana (devnet), usando la Solana JS SDK para las interacciones desde el frontend y la Phantom Wallet para firmar las trasacciones, ademas de todo estar realizado mediante el framework de ReactJS.
 
 <img src="https://i.ibb.co/DCbLGwm/image.png">
+
+Primero que nada, desplegamos nuestro propio programa de memo, a travez de Solana CLI.
+
+[Pogram Code](./Program)
+
+Si deseas rebuildear el programa ocuparas las siguientes dependendias en tu computadora.
+
+- [NodeJS.](https://nodejs.org/en/) 
+- [Solana CLI.](https://docs.solana.com/cli/install-solana-cli-tools)
+- [Rust.](https://www.rust-lang.org/)
+
+Puedes utilizar nuestro programa tambien ya que este desplegando en la blockchain.
+
+[Solana Explorer Program](https://explorer.solana.com/address/DVzMcYDk2Hs2BF5P5iHEDc3ZG7wpLHRG9WaQPCjfayug?cluster=devnet)
+
+Todos el chat esta completamente on-chain, asi que todos los datos obtenidos son atraves del Solana JS SDK, asi que para poder realizar seguimiento de las transacciones y los mensajes, se utilizaron dos intrucciones en cada transaccion.
+
+## Intruction 1: 
+
+Agregar el mensaje a la transaccion y subirlo a la blockchain.
+
+    const instruction = new solanaWeb3.TransactionInstruction({
+            keys: [],
+            programId: memoPublicKey,
+            data: Buffer.from(tempMessage),
+    });
+
+## Intruction 2: 
+
+Mandar una trasaccion con 0 o mas Solana en ella, esta instruccion nos ayuda a tener la informacion del from y to, para el chat.
+
+    var transaction = new solanaWeb3.Transaction().add(
+    instruction,
+    solanaWeb3.SystemProgram.transfer({
+        fromPubkey: this.provider.publicKey,
+        toPubkey: new solanaWeb3.PublicKey(to),
+        lamports: this.state.req ? 0 : Math.round(solanaWeb3.LAMPORTS_PER_SOL * num) //Investing 1 SOL. Remember 1 Lamport = 10^-9 SOL.
+    })
+    );
 
 # What's next:
 
