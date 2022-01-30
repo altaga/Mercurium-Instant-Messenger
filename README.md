@@ -1,6 +1,13 @@
 # Mercurium Instant Messenger
- 
+
+<p align="center">
+<img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
+</p>
+
+# Table of Contents:
+
 - [Mercurium Instant Messenger](#mercurium-instant-messenger)
+- [Table of Contents:](#table-of-contents)
 - [Introduction and Problem Statement:](#introduction-and-problem-statement)
 - [Our Solution:](#our-solution)
 - [How it's built:](#how-its-built)
@@ -40,7 +47,9 @@ Todo este demo corre sobre la red devnet, con el fin de poder realizar las prueb
 
 # How it's built:
 
+Todo nuestro chat esta basado en el uso de transacciones e interaccion con un programa de memo desplegado en la blockchain de solana (devnet), usando la Solana JS SDK para las interacciones desde el frontend y la Phantom Wallet para firmar las trasacciones, ademas de todo estar realizado mediante el framework de ReactJS.
 
+<img src="https://i.ibb.co/DCbLGwm/image.png">
 
 # What's next:
 
