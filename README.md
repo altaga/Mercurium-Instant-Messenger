@@ -11,8 +11,8 @@
 - [Introduction and Problem Statement:](#introduction-and-problem-statement)
 - [Our Solution:](#our-solution)
 - [How it's built:](#how-its-built)
-  - [Intruction 1:](#intruction-1)
-  - [Intruction 2:](#intruction-2)
+  - [Instruction 1:](#instruction-1)
+  - [Instruction 2:](#instruction-2)
 - [What's next:](#whats-next)
 - [Team:](#team)
 - [Acknowledgements and References:](#acknowledgements-and-references)
@@ -69,7 +69,7 @@ Puedes utilizar nuestro programa tambien ya que este desplegando en la blockchai
 
 Todos el chat esta completamente on-chain, asi que todos los datos obtenidos son atraves del Solana JS SDK, asi que para poder realizar seguimiento de las transacciones y los mensajes, se utilizaron dos intrucciones en cada transaccion.
 
-## Intruction 1: 
+## Instruction 1: 
 
 Agregar el mensaje a la transaccion y subirlo a la blockchain.
 
@@ -79,7 +79,7 @@ Agregar el mensaje a la transaccion y subirlo a la blockchain.
             data: Buffer.from(tempMessage),
     });
 
-## Intruction 2: 
+## Instruction 2: 
 
 Mandar una trasaccion con 0 o mas Solana en ella, esta instruccion nos ayuda a tener la informacion del from y to, para el chat.
 
