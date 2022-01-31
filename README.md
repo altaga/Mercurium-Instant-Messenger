@@ -13,6 +13,7 @@
 - [How it's built:](#how-its-built)
   - [Instruction 1:](#instruction-1)
   - [Instruction 2:](#instruction-2)
+  - [Example:](#example)
 - [What's next:](#whats-next)
 - [Team:](#team)
 - [Acknowledgements and References:](#acknowledgements-and-references)
@@ -91,6 +92,14 @@ Mandar una trasaccion con 0 o mas Solana en ella, esta instruccion nos ayuda a t
         lamports: this.state.req ? 0 : Math.round(solanaWeb3.LAMPORTS_PER_SOL * num) //Investing 1 SOL. Remember 1 Lamport = 10^-9 SOL.
     })
     );
+
+## Example:
+
+Aqui el ejemplo de una trasaccion directamente desde la Blockchain.
+
+[Solana Explorer Transaction](https://explorer.solana.com/tx/3S5FGp32xsQDCEc8sXxxxwrwJxnNQBFpfQrqRKZAqAFJc7TawxQn1KRxbTZE8aMzCeJZb9Zmge39ww92hagHT2Kc?cluster=devnet)
+
+<img src="https://i.ibb.co/FxZ4qwt/image.png">
 
 # What's next:
 
