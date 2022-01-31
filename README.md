@@ -7,19 +7,26 @@
 <img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
 </p>
 
-# Table of Contents:
+Welcome to NFT Arcade.
 
-- [Mercurium Instant Messenger](#mercurium-instant-messenger)
-- [Table of Contents:](#table-of-contents)
-- [Introduction and Problem Statement:](#introduction-and-problem-statement)
-- [Our Solution:](#our-solution)
-- [How it's built:](#how-its-built)
-  - [Instruction 1:](#instruction-1)
-  - [Instruction 2:](#instruction-2)
-  - [Example:](#example)
-- [What's next:](#whats-next)
-- [Team:](#team)
-- [Acknowledgements and References:](#acknowledgements-and-references)
+###  NFT-Arcade is an NFT marketplace where streamers, creators and gamers can easily and quickly upload short videos of their best moments and turn them into NFTs.
+
+This is our submission for the NFT Hack 2022.
+
+#### Click here to watch our demo video:
+
+[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](Poner video)
+
+## To test the product follow this link:
+<a href="https://www.nft-arcade.online/" target="_blank" style="font-size:30px;">
+https://main.d3lic6l5z1fp8z.amplifyapp.com
+
+### Use Solana devnet on the Phantom wallet!!!!
+
+follo
+
+</a>
+<hr>
 
 # Introduction and Problem Statement:
 
