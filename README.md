@@ -164,7 +164,7 @@ We will be working to improve on this Prototype, we already have the main charac
 
 Other features we will be looking at from here on are:
 
-- Emoji integration
+- Token(Serum) and NFT transfer.
 - Audio, video, documents, audio notes and multimedia in general. (Perhaps an integration with Arweave for that?)
 - Push Notifications
 - Online Status
