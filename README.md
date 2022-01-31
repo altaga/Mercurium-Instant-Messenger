@@ -46,7 +46,7 @@ Send:
 
 Recieve:
 
-<img src="./Images/Request.gif">
+<img src="./Images/Request.gif" width="100%">
 
 Y como se menciono con anterioridad solo se autorizan las trasacciones que se hayan realizado mediante la firma con nuestra Phantom Wallet.
 
