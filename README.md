@@ -160,6 +160,21 @@ Aqui el ejemplo de una trasaccion directamente desde la Blockchain.
 
 # What's next:
 
+We will be working to improve on this Prototype, we already have the main characteristics of an instant messenger and it works seamlessly within Serum, but we need a couple more features. Regarding encryption, it is very easy to do and we could have done it at this time, we coded it and it is ready for deployment, but we opted to not include it in this version to help testers prove it is indeed On-chain which is the most difficult feature to have. 
+
+Other features we will be looking at from here on are:
+
+- Emoji integration
+- Audio, video, documents, audio notes and multimedia in general. (Perhaps an integration with Arweave for that?)
+- Push Notifications
+- Online Status
+- Mobile Version
+
+Data is the ultimate resource for the coming years and in an age where we have incredible machine learning and cryptographic technologies, not to mention blockchain it is a shame that we have to rely on big tech for an application that has to become a human right. Of course, privacy is paramount and when we are dealing with a use case for money, which DeFi is, it is of utmost importance.
+
+Hopefully you liked the project and please support it. 
+
+
 # Team
 [<img src="https://img.shields.io/badge/Luis%20Eduardo-Arevalo%20Oliver-blue">](https://www.linkedin.com/in/luis-eduardo-arevalo-oliver-989703122/)
 
