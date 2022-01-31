@@ -36,6 +36,26 @@ Needless to say, you need a friend to test it or you could message us via Devpos
 
 # Introduction and Problem Statement:
 
+When we were researching what to hack we decided to check what kind of projects did the Serum and Solana communities had or what kind of Dapps they wanted the community to develop. 
+
+So, we found this under project Requests and grants:
+
+<img src="https://i.ibb.co/WtSLhwz/serumwish.png">
+
+Quite interesting that there was an important demand for this kind of messaging applications, when they are ubiquitous nowadays.
+
+But we had to evaluate first the market and see if there is really a problem...
+
+Messaging systems and apps such as whatsapp, telegram, wechat, facebook messenger and so many others have become ubiquitous nowadays. And not only that, but businesses and individuals have become partially dependent on these and we trust them because of the number of people that use them. With more than 3.6 billion people worldwide and over 145 billion messages being sent every day. 
+
+<img src="https://assets-global.website-files.com/5e42772e6a8cfd42a9715206/609a4d9ba39eb4aaa1308844_growth-of-messaging-apps-2016.jpeg">
+
+This has brought forth stratospheric market valuations.
+
+WhatsApp was acquired for $19 billion in 2014, Telegram has over 500 million users and rejected an investment offer at $30 billion. Skype was sold to Microsoft for $8.5 billion in 2011. And they will continue growing at a rate of 10% per year by 2030.
+
+We indeed have a problem!
+
 PROBLEMAS MUY PROBLEMATICOS WE
 
 # Our Solution:
