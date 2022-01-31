@@ -26,6 +26,8 @@ https://main.d3lic6l5z1fp8z.amplifyapp.com
 Get it on: https://phantom.app/
 
 follow: https://hello-17.gitbook.io/crema-devnet-test-guide/switch-your-solana-wallet-to-devnet
+    
+More Help: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
 
 Needless to say, you need a friend to test it or you could message us via Devpost.    
     
