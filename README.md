@@ -22,8 +22,10 @@ This is our submission for the NFT Hack 2022.
 https://main.d3lic6l5z1fp8z.amplifyapp.com
 
 ### Use Solana devnet on the Phantom wallet!!!!
+    
+Get it on: https://phantom.app/
 
-follo
+follow: https://hello-17.gitbook.io/crema-devnet-test-guide/switch-your-solana-wallet-to-devnet
 
 </a>
 <hr>
