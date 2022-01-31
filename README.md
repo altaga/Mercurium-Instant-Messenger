@@ -40,13 +40,13 @@ Ademas de proveer incluir sobre la misma trasaccion el poder pedir o mandar SOL 
 
 <img src="https://i.ibb.co/ckvQTjB/image.png">
 
+Request:
+
+<img src="./Images/Request.gif" width="100%">
+
 Send:
 
 <img src="./Images/Send.gif" width="100%">
-
-Recieve:
-
-<img src="./Images/Request.gif" width="100%">
 
 Y como se menciono con anterioridad solo se autorizan las trasacciones que se hayan realizado mediante la firma con nuestra Phantom Wallet.
 
