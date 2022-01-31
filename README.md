@@ -42,7 +42,7 @@ Ademas de proveer incluir sobre la misma trasaccion el poder pedir o mandar SOL 
 
 Send:
 
-<img src="">
+<img src="./Images/Send.gif" width="100%">
 
 Recieve:
 
