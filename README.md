@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://main.d3lic6l5z1fp8z.amplifyapp.com) [<img src="https://img.shields.io/badge/View-Video-red">](Poner video)
+
+
 # Mercurium Instant Messenger
 
 <p align="center">
