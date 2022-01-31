@@ -64,6 +64,13 @@ We indeed have a problem!
 
 Data is the most valuable resource an individual has and through blockchain technology this privacy issue can be quenched. We think that the way to launch a competitor is through the DeFi ecosystem as it is growing at an incredible rate and Serum is one of the premium platforms for that.
 
+Having said that we decided to build it with the following characteristics:
+
+- Fully on-chain encrypted chat app, 
+- Directly integrated to Serum GUI.
+- With a great UI.
+- Allows token transfer between chatters!
+
 # Our Solution:
 
 Se realizo un chat totalmente on-chain en Solana, realizando interacciones a travez de nuestra [Phantom Wallet](https://phantom.app/) e integrado a Serum DEX.
