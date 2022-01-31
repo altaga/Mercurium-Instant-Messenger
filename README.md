@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://main.d3lic6l5z1fp8z.amplifyapp.com) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
+A totally on-chain chat was made in Solana, making interactions through our [Phantom Wallet](https://phantom.app/) and integrated to Serum DEX.[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://main.d3lic6l5z1fp8z.amplifyapp.com) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
 
 
 # Mercurium Instant Messenger
@@ -73,19 +73,19 @@ Having said that we decided to build it with the following characteristics:
 
 # Our Solution:
 
-Se realizo un chat totalmente on-chain en Solana, realizando interacciones a travez de nuestra [Phantom Wallet](https://phantom.app/) e integrado a Serum DEX.
+A Fully on-chain instant messenger was developed in Solana, making interactions through our [Phantom Wallet](https://phantom.app/) and integrated to Serum DEX.
 
 <img src="https://i.ibb.co/tsv6prR/image.png">
 
-Una vez abierta la barra de direccion, poner la address a la cual le mandaremos mensajes y presionamos StartChat.
+Once the address bar is open, put your contact's address to which we will send messages and press StartChat.
 
 <img src="https://i.ibb.co/7zQDBFj/image.png">
 
-Una vez abierta la nueva pestaña podremos empezar a mandar mensajes a la direccion correspondiente. 
+Once the new tab is open, we can start sending messages to the corresponding address. 
 
 <img src="https://i.ibb.co/jfSYMLV/image.png">
 
-Ademas de proveer incluir sobre la misma trasaccion el poder pedir o mandar SOL a la otra address de forma sencilla.
+In addition to that we provide a service request or send SOL to the other address in a simple way.
 
 <img src="https://i.ibb.co/ckvQTjB/image.png">
 
@@ -97,39 +97,39 @@ Send:
 
 <img src="./Images/Send.gif" width="100%">
 
-Y como se menciono con anterioridad solo se autorizan las trasacciones que se hayan realizado mediante la firma con nuestra Phantom Wallet.
+And as mentioned before, only transactions that have been made by signing with our Phantom Wallet are authorized.
 
 <img src="https://i.ibb.co/9hRCMd3/image.png">
 
-Todo este demo corre sobre la red devnet, con el fin de poder realizar las pruebas correspondientes, si no tienes SOL para probar nuetsra pataforma, agregamos un boton de Airdrop, para mandarte 1 SOL de prueba, puedes presionarlo las veces que quieras.
+All this demo runs on the devnet network, in order to be able to carry out the corresponding tests. For testing purposes we deactivated encryption and added an Airdrop button. If you do not have SOL to test on Devnet to check out our platform, you can press it as many times as you want.
 
 <img src="https://i.ibb.co/PgwpP0c/image.png">
 
 # How it's built:
 
-Todo nuestro chat esta basado en el uso de transacciones e interaccion con un programa de memo desplegado en la blockchain de solana (devnet), usando la Solana JS SDK para las interacciones desde el frontend y la Phantom Wallet para firmar las trasacciones, ademas de todo estar realizado mediante el framework de ReactJS.
+All our chat is based on the use of transactions and interaction with a memo program deployed on the solana blockchain (devnet), using the Solana JS SDK for interactions from the frontend and the Phantom Wallet to sign the transactions, in addition to everything be made using the ReactJS framework.
 
 <img src="https://i.ibb.co/DCbLGwm/image.png">
 
-Primero que nada, desplegamos nuestro propio programa de memo, a travez de Solana CLI.
+First of all, we deploy our own memo program, through the Solana CLI.
 
 [Pogram Code](./Program)
 
-Si deseas rebuildear el programa ocuparas las siguientes dependendias en tu computadora.
+If you want to rebuild the program you will occupy the following dependencies on your computer.
 
 - [NodeJS.](https://nodejs.org/en/) 
 - [Solana CLI.](https://docs.solana.com/cli/install-solana-cli-tools)
 - [Rust.](https://www.rust-lang.org/)
 
-Puedes utilizar nuestro programa tambien ya que este desplegando en la blockchain.
+You can use our program as well as it is deploying on the blockchain.
 
 [Solana Explorer Program](https://explorer.solana.com/address/DVzMcYDk2Hs2BF5P5iHEDc3ZG7wpLHRG9WaQPCjfayug?cluster=devnet)
 
-Todos el chat esta completamente on-chain, asi que todos los datos obtenidos son atraves del Solana JS SDK, asi que para poder realizar seguimiento de las transacciones y los mensajes, se utilizaron dos intrucciones en cada transaccion.
+All the chat is completely on-chain, so all the data obtained is through the Solana JS SDK, so in order to track transactions and messages, two instructions were used in each transaction.
 
 ## Instruction 1: 
 
-Agregar el mensaje a la transaccion y subirlo a la blockchain.
+Add the message to the transaction and upload it to the blockchain.
 
     const instruction = new solanaWeb3.TransactionInstruction({
             keys: [],
@@ -139,7 +139,7 @@ Agregar el mensaje a la transaccion y subirlo a la blockchain.
 
 ## Instruction 2: 
 
-Mandar una trasaccion con 0 o mas Solana en ella, esta instruccion nos ayuda a tener la informacion del from y to, para el chat.
+Send a transaction with 0 or more Solana in it, this instruction helps us to have the from and to information for the chat.
 
     var transaction = new solanaWeb3.Transaction().add(
     instruction,
@@ -152,7 +152,7 @@ Mandar una trasaccion con 0 o mas Solana en ella, esta instruccion nos ayuda a t
 
 ## Example:
 
-Aqui el ejemplo de una trasaccion directamente desde la Blockchain.
+Here is the example of a transaction directly from the Blockchain.
 
 [Solana Explorer Transaction](https://explorer.solana.com/tx/3S5FGp32xsQDCEc8sXxxxwrwJxnNQBFpfQrqRKZAqAFJc7TawxQn1KRxbTZE8aMzCeJZb9Zmge39ww92hagHT2Kc?cluster=devnet)
 
