@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://main.d3lic6l5z1fp8z.amplifyapp.com) [<img src="https://img.shields.io/badge/View-Video-red">](Poner video)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://main.d3lic6l5z1fp8z.amplifyapp.com) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
 
 
 # Mercurium Instant Messenger
@@ -7,15 +7,15 @@
 <img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
 </p>
 
-Welcome to NFT Arcade.
+Welcome to MIM.
 
-###  NFT-Arcade is an NFT marketplace where streamers, creators and gamers can easily and quickly upload short videos of their best moments and turn them into NFTs.
+###  Mercurium is an instant messenger built on the Solana blockchain and integrated into the Serum UI.
 
-This is our submission for the NFT Hack 2022.
+This is our submission for the Convergence Hackathon 2022.
 
 #### Click here to watch our demo video:
 
-[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](Poner video)
+[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](https://youtu.be/YVnSGGthOVE)
 
 ## To test the product follow this link:
 <a href="https://www.nft-arcade.online/" target="_blank" style="font-size:30px;">
@@ -125,6 +125,11 @@ Aqui el ejemplo de una trasaccion directamente desde la Blockchain.
 
 # What's next:
 
-# Team:
+# Team
+[<img src="https://img.shields.io/badge/Luis%20Eduardo-Arevalo%20Oliver-blue">](https://www.linkedin.com/in/luis-eduardo-arevalo-oliver-989703122/)
 
-# Acknowledgements and References:
+[<img src="https://img.shields.io/badge/Victor%20Alonso-Altamirano%20Izquierdo-lightgrey">](https://www.linkedin.com/in/alejandro-s%C3%A1nchez-guti%C3%A9rrez-11105a157/)
+
+[<img src="https://img.shields.io/badge/Alejandro-Sanchez%20Gutierrez-red">](https://www.linkedin.com/in/victor-alonso-altamirano-izquierdo-311437137/)
+
+# References:
