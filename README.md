@@ -27,6 +27,8 @@ Get it on: https://phantom.app/
 
 follow: https://hello-17.gitbook.io/crema-devnet-test-guide/switch-your-solana-wallet-to-devnet
 
+Needless to say, you need a friend to test it or you could message us via Devpost.    
+    
 </a>
 <hr>
 
