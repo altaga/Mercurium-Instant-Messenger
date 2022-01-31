@@ -9,7 +9,7 @@
 
 Welcome to MIM.
 
-###  Mercurium is an instant messenger built on the Solana blockchain and integrated into the Serum UI. The Dapp is fully on-chain, and allows for Token transfer.
+###  Mercurium is an instant messenger built on the Solana blockchain and integrated into the Serum UI. The Dapp is fully on-chain, and allows for SOL transfer.
 
 This is our submission for the Convergence Hackathon 2022.
 
@@ -69,7 +69,7 @@ Having said that we decided to build it with the following characteristics:
 - Fully on-chain encrypted chat app, 
 - Directly integrated to Serum GUI.
 - With a great UI.
-- Allows token transfer between chatters!
+- Allows SOL transfer between chatters!
 
 # Our Solution:
 
