@@ -8,12 +8,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Gitopia Mirror Action
-        uses: gitopia/gitopia-mirror-action@v0.3.0
-        with:
-          gitopiaWallet: "${{ secrets.GITOPIA_WALLET }}"
-          branch: "master"
-          remoteUrl: "gitopia://gitopia1h5r4fg3jgy8hu3tn7hk5dyhes305u9874pfv66/MIM"
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
