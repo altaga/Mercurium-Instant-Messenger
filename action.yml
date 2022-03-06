@@ -30,4 +30,4 @@ runs:
         git push gitopia ${GITHUB_REF}:${{inputs.branch}} --force
       shell: bash
       env:
-        GITOPIA_WALLET: ${{inputs.gitopiaWallet}}
+        GITOPIA_WALLET: ${{secrets.GITOPIA_WALLET}}
