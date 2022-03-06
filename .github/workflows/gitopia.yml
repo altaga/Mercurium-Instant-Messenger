@@ -1,4 +1,9 @@
 name: Mirror to Gitopia
+description: "Mirrors your GitHub repo on Gitopia"
+author: "Altaga"
+branding:
+  icon: arrow-up-circle
+  color: green
 
 on:
   push:
@@ -14,8 +19,8 @@ jobs:
       - name: Get Gitopia Repo
         run: |
           git remote add MIM gitopia://gitopia1h5r4fg3jgy8hu3tn7hk5dyhes305u9874pfv66/MIM
-      - name: Get Gitopia Repo
+      - name: Push to Gitopia
         run: |
           git push gitopia ${GITHUB_REF}:${{inputs.branch}} --force
-      - env:
-        GITOPIA_WALLET: ${{ secrets.GITOPIA_WALLET }}
+        env:
+          GITOPIA_WALLET: ${{ secrets.GITOPIA_WALLET }}
