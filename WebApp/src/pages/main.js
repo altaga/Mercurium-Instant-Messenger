@@ -183,7 +183,7 @@ const currencyMap = {
 }
 
 const providerMap = {
-  "MetaMask": async (c: any) => {
+  "MetaMask": async () => {
     if (!window?.ethereum?.isMetaMask) return;
     return await connectWeb3(window.ethereum);
   }
@@ -420,6 +420,11 @@ class Main extends Component {
       this.setState({
         sending: false,
         req: false,
+        message: "",
+        file: null,
+        fileBuffer: null,
+        price: 0,
+        amount: 0,
       })
     })
   }
