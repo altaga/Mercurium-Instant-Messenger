@@ -16,27 +16,19 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Logo from "../assets/cuadrado.png";
 import githubLogo from '../assets/githubLogo.png';
 import globalLogo from '../assets/globalLogo.png';
-import MaticLogo from '../assets/matic-token.png';
 // Crypto
 import { WebBundlr } from "@bundlr-network/client";
 import { abi } from '../contract/chatContract.js';
-import Modals from '../components/modal';
-// Video Import
-import { Player, BigPlayButton } from 'video-react';
-import 'video-react/dist/video-react.css'; // import css
-// Audio Import
-import ReactAudioPlayer from 'react-audio-player';
 
 const ethers = require('moralis').web3Library
-const providers = ethers.providers;
 
 // Constants
-const serverUrl = "https://turhlzycsgbd.usemoralis.com:2053/server";
-const appId = "Tvc8JNiV0p4vVcIAdIL0bHmkhsVubFnQmY3b3mRJ";
+const serverUrl = "https://cdomha0qlnly.usemoralis.com:2053/server";
+const appId = "ERgDzXMibEjJfJUiax3RK3muX7unA0Pocb2Sudbw";
 const optionsNetwork = {
-  chain: "polygon"
+  chain: "mumbai"
 }
-const contractAddress = "0xF4aBfb397D67BabcaF7C3cC2edCf0d041bE32c38";
+const contractAddress = "0xCa185554B896B0B496479BDD9B74A675f0Be7674";
 const bundlrNode = "https://node1.bundlr.network";
 
 const etherTable = {
@@ -56,56 +48,6 @@ const etherTable = {
 
 // General functions
 
-function readFile(e) {
-  const file = e.target.files[0];
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-
-    reader.onload = (event) => {
-      resolve(event.target.result);
-    };
-
-    reader.onerror = (err) => {
-      reject(err);
-    };
-
-    reader.readAsArrayBuffer(file);
-  });
-}
-
-async function connectWeb3(connector) {
-  const p = new providers.Web3Provider(connector);
-  await p._ready();
-  return p
-}
-
-function getNamefromURL(url) {
-  let file = url.split("/")
-  file = file[file.length - 1]
-  return file
-}
-
-function detectFileType(url) {
-  let file = url.split("/")
-  file = file[file.length - 1]
-  let fileType = file.split(".")[1]
-  if (fileType === "pdf") {
-    return "pdf"
-  } else if (fileType === "txt") {
-    return "txt"
-  } else if (fileType === "mp4" || fileType === "avi" || fileType === "mov" || fileType === "mkv" || fileType === "wmv" || fileType === "mpg" || fileType === "mpeg" || fileType === "3gp" || fileType === "m4v" || fileType === "flv" || fileType === "f4v" || fileType === "m4p" || fileType === "m4v" || fileType === "m4a" || fileType === "m4b" || fileType === "m4r" || fileType === "m4s") {
-    return "video"
-  } else if (fileType === "mp3" || fileType === "wav" || fileType === "ogg" || fileType === "aac" || fileType === "wma" || fileType === "m4a" || fileType === "m4b" || fileType === "m4r" || fileType === "m4s") {
-    return "audio"
-  } else if (fileType === "png" || fileType === "jpg" || fileType === "jpeg" || fileType === "gif" || fileType === "bmp") {
-    return "image"
-  }
-  else {
-    return "other"
-  }
-}
-
-
 function transform(value, unit) {
   if (value === undefined || value === null) {
     return "";
@@ -121,50 +63,35 @@ function mergeAndSort(a, b) {
   let tempB = [];
   a.forEach(function (item) {
     let req = 0
-    let file = ""
-    let delString1 = "";
-    let delString2 = "";
+    let delString = "";
     if (item.mess.indexOf(":req:") > -1) {
-      delString1 = item.mess.substring(item.mess.indexOf(":req:"), item.mess.indexOf(":reqf:") + 6)
-      req = parseFloat(delString1.replace(":req:", "").replace(":reqf:", ""))
-    }
-    if (item.mess.indexOf(":file:") > -1) {
-      delString2 = item.mess.substring(item.mess.indexOf(":file:"), item.mess.indexOf(":filef:") + 7)
-      file = delString2.replace(":file:", "").replace(":filef:", "")
+      delString = item.mess.substring(item.mess.indexOf(":req:"), item.mess.length)
+      req = parseFloat(delString.replace(":req:", ""))
     }
     let json = {
       blocktime: item.blocktime,
       money: transform(item.value, "ether"),
       type: "from",
       to: item.to,
-      message: item.mess.replace(delString1, "").replace(delString2, ""),
-      req: req,
-      file: file
+      message: item.mess.replace(delString, ""),
+      req: req
     };
     tempA.push(json);
   });
   b.forEach(function (item) {
     let req = 0
-    let file = ""
-    let delString1 = "";
-    let delString2 = "";
+    let delString = "";
     if (item.mess.indexOf(":req:") > -1) {
-      delString1 = item.mess.substring(item.mess.indexOf(":req:"), item.mess.indexOf(":reqf:") + 6)
-      req = parseFloat(delString1.replace(":req:", "").replace(":reqf:", ""))
-    }
-    if (item.mess.indexOf(":file:") > -1) {
-      delString2 = item.mess.substring(item.mess.indexOf(":file:"), item.mess.indexOf(":filef:") + 7)
-      console.log(delString2)
-      file = delString2.replace(":file:", "").replace(":filef:", "")
+      delString = item.mess.substring(item.mess.indexOf(":req:"), item.mess.length)
+      req = parseFloat(delString.replace(":req:", ""))
     }
     let json = {
       blocktime: item.blocktime,
       money: transform(item.value, "ether"),
       type: "to",
       to: item.to,
-      message: item.mess.replace(delString1, "").replace(delString2, ""),
-      req: req,
-      file: file
+      message: item.mess.replace(delString, ""),
+      req: req
     };
     tempB.push(json);
   });
@@ -174,19 +101,6 @@ function mergeAndSort(a, b) {
     return a.blocktime - b.blocktime;
   });
   return result;
-}
-
-const currencyMap = {
-  "matic": {
-    providers: ["MetaMask"],
-  },
-}
-
-const providerMap = {
-  "MetaMask": async (c: any) => {
-    if (!window?.ethereum?.isMetaMask) return;
-    return await connectWeb3(window.ethereum);
-  }
 }
 
 class Main extends Component {
@@ -216,12 +130,6 @@ class Main extends Component {
       tokenList: [],
       tokenSelect: "",
       file: null,
-      imageModal: true,
-      price: 0,
-      amount: 0,
-      fileBuffer: null,
-      bundlerBalance: 0,
-      addFunds: 0,
     }
     autoBind(this);
     this.Moralis = require('moralis');
@@ -231,18 +139,6 @@ class Main extends Component {
     this.fetchInterval = null;
     this.updateData = null;
     this.bundlr = null;
-    this.updateBundlrBalance = null;
-  }
-
-  async setupBundlr() {
-    let providerName = "MetaMask";
-    let currencyName = "matic"
-    const providerFunc = providerMap[providerName] // get provider entry
-    const currency = currencyMap[currencyName] // get currency entry
-    const provider = await providerFunc(currency); // 
-    const bundlr = new WebBundlr(bundlrNode, "matic", provider);
-    await bundlr.ready();
-    return bundlr; // done!
   }
 
   async componentDidMount() {
@@ -302,6 +198,7 @@ class Main extends Component {
       }
       else {
         this.provider = await this.Moralis.enableWeb3();
+        //this.bundlr = new WebBundlr(bundlrNode, "matic", this.provider);
         this.chatContract = new ethers.Contract(contractAddress, abi(), this.provider.getSigner());
         const value = await this.Moralis.Web3API.account.getNativeBalance(optionsNetwork)
         this.setState({
@@ -333,7 +230,6 @@ class Main extends Component {
     clearInterval(this.connectInterval);
     clearInterval(this.fetchInterval);
     clearInterval(this.updateData);
-    clearInterval(this.updateBundlrBalance);
   }
 
   async getMessagesFromAccount(from, to) {
@@ -404,11 +300,7 @@ class Main extends Component {
   async sendMessage(to, message, num) {
     let tempMessage = message;
     if (this.state.req) {
-      tempMessage += ":req:" + num.toString() + ":reqf:"
-    }
-    if (this.state.file !== null) {
-      let response = await this.bundlr.uploader.upload(this.state.fileBuffer, this.state.file)
-      tempMessage += `:file:https://arweave.net/${response.data.id}/${this.state.file.name}:filef:`
+      tempMessage += ":req:" + num.toString()
     }
     this.setState({
       sending: true
@@ -447,21 +339,6 @@ class Main extends Component {
     return messages;
   }
 
-  async updateBundlr() {
-    const balance = await this.bundlr.getLoadedBalance()
-    const converted = this.bundlr.utils.unitConverter(balance)
-    this.setState({
-      bundlerBalance: parseFloat(converted),
-    })
-    this.updateBundlrBalance = setInterval(async () => {
-      const balances = await this.bundlr.getLoadedBalance()
-      const converteds = this.bundlr.utils.unitConverter(balances)
-      this.setState({
-        bundlerBalance: parseFloat(converteds),
-      })
-    }, 5000)
-  }
-
   render() {
     return (
       <>
@@ -478,7 +355,7 @@ class Main extends Component {
                         alignItems: 'center',
                       }}>
                         <div style={{ fontSize: "3rem", textAlign: "center", color: "black", width: "80vw" }}>
-                          Type the Polygon Mainnet <br /> address to start chatting.
+                          Type the Polygon (Mumbai) <br /> address to start chatting.
                         </div>
                         <p />
                         <Input
@@ -630,48 +507,44 @@ class Main extends Component {
                         width: "70%",
                         height: "94vh",
                       }}>
-                        <CardTitle style={{ background: "#8247e5", height: "12%", padding: "10px" }}>
-                          <Row>
-                            <Col xs="12">
-                              <div style={{ fontSize: "16px", color: "white", fontWeight: "bold" }}>
-                                Chat with {this.state.activeAddress}
-                              </div>
-                            </Col>
-                            <div style={{
-                              height: "1px",
-                              marginTop: "5px",
-                              marginBottom: "5px",
-                              width: "100%",
-                              background: "white"
-                            }} />
-                            <Col xs="12">
-                              <div style={{ fontSize: "16px", color: "white", fontWeight: "bold" }}>
-                                {
-                                  "File Price: " + this.state.amount.toString() + " MATIC  | "
-                                }
-                                <button
-                                  disabled={this.state.file === null ? true : false}
-                                  className="myButton2"
-                                  onClick={
-                                    async () => {
-                                      await this.bundlr.fund(parseInt(this.state.price * 1.1))
-                                      const balance = await this.bundlr.getLoadedBalance()
-                                      const converted = this.bundlr.utils.unitConverter(balance)
-                                      this.setState({
-                                        bundlerBalance: parseFloat(converted),
-                                      })
-                                    }
-                                  }>
-                                  Add these Funds
-                                </button>
-                              </div>
-                            </Col>
-                          </Row>
+                        <CardTitle style={{ background: "#8247e5", height: "7%", padding: "10px" }}>
+                          <div style={{ fontSize: "16px", color: "black" }}>
+                            Chat with {this.state.activeAddress}
+                            <button
+                              style={{ float: "right" }}
+                              className="myButton"
+                              id="airdropButton"
+                              onClick={async () => {
+                                window.document.getElementById("airdropButton").disabled = true;
+                                var myHeaders = new Headers();
+                                myHeaders.append("content-type", "application/json;charset=UTF-8");
+                                var raw = `{"network":"mumbai","address":"${this.state.account.ethAddress}","token":"maticToken"}`;
+                                var requestOptions = {
+                                  method: 'POST',
+                                  headers: myHeaders,
+                                  body: raw,
+                                  redirect: 'follow'
+                                };
+                                fetch("https://api.faucet.matic.network/transferTokens", requestOptions)
+                                  .then(response => response.text())
+                                  .then(result => {
+                                    setTimeout(() => {
+                                      window.document.getElementById("airdropButton").disabled = false;
+                                    }, 60000);
+                                  })
+                                  .catch(error => console.log('error', error));
+                              }}
+                            >
+                              {
+                                "Airdrop 0.5 MATIC (Mumbai)"
+                              }
+                            </button>
+                          </div>
                         </CardTitle>
                         <CardBody style={{ background: "white" }}>
                           {
                             (this.state.messageHistory.length > 0 && !this.state.changeFlag) ?
-                              <div id="ChatWindow" style={{ overflowY: "auto", maxHeight: this.state.checked ? "64vh" : "69vh" }}>
+                              <div id="ChatWindow" style={{ overflowY: "auto", maxHeight: this.state.checked ? "68vh" : "74vh" }}>
                                 {
                                   this.state.messageHistory.map((message, index) => {
                                     let margin;
@@ -694,83 +567,6 @@ class Main extends Component {
                                                 color: "black",
                                                 borderColor: "white"
                                               }}>
-                                                {
-                                                  message.file.length > 0 ?
-                                                    <CardBody>
-                                                      <div style={{
-                                                        fontSize: "16px",
-                                                        color: "white"
-                                                      }}>
-                                                        {
-                                                          detectFileType(message.file) === "image" &&
-                                                          <>
-                                                            <Modals
-                                                              type="image"
-                                                              message={message}
-                                                              index={index}
-                                                            />
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "video" &&
-                                                          <>
-                                                            <Player src={message.file} >
-                                                              <BigPlayButton position="center" />
-                                                            </Player>
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "audio" &&
-                                                          <>
-                                                            <ReactAudioPlayer
-                                                              src={message.file}
-                                                              controls
-                                                              style={{
-                                                                width: "100%"
-                                                              }}
-                                                            />
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "pdf" &&
-                                                          <>
-                                                            <button
-                                                              style={{ fontSize: "1.3rem", width: "40%" }}
-                                                              className="myButton2"
-                                                              onClick={() => {
-                                                                window.open(message.file, "_blank")
-                                                              }}>   Open PDF </button>
-                                                            {" " + getNamefromURL(message.file).substring(0, 30)}
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "txt" &&
-                                                          <>
-                                                            <button
-                                                              style={{ fontSize: "1.3rem", width: "40%" }}
-                                                              className="myButton2"
-                                                              onClick={() => {
-                                                                window.open(message.file, "_blank")
-                                                              }}>   Open TXT </button>
-                                                            {" " + getNamefromURL(message.file).substring(0, 30)}
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "other" &&
-                                                          <>
-                                                            <button
-                                                              style={{ fontSize: "1.3rem", width: "40%" }}
-                                                              className="myButton2"
-                                                              onClick={() => {
-                                                                window.open(message.file, "_blank")
-                                                              }}>   Open File </button>
-                                                            {" " + getNamefromURL(message.file).substring(0, 30)}
-                                                          </>
-                                                        }
-                                                      </div>
-                                                    </CardBody>
-                                                    : <div />
-                                                }
                                                 {
                                                   message.message.length > 0 ?
                                                     <CardBody>
@@ -849,7 +645,7 @@ class Main extends Component {
                                               </Card>
                                             </div>
                                             :
-                                            <div key={"elementdf" + index}>
+                                            <div key={"elementd" + index}>
                                               <Card style={{
                                                 width: "70%",
                                                 float: "right",
@@ -858,83 +654,6 @@ class Main extends Component {
                                                 background: "#8247e5",
                                                 color: "#8247e5",
                                               }}>
-                                                {
-                                                  message.file.length > 0 ?
-                                                    <CardBody>
-                                                      <div style={{
-                                                        fontSize: "16px",
-                                                        color: "white"
-                                                      }}>
-                                                        {
-                                                          detectFileType(message.file) === "image" &&
-                                                          <>
-                                                            <Modals
-                                                              type="image"
-                                                              message={message}
-                                                              index={index}
-                                                            />
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "video" &&
-                                                          <>
-                                                            <Player src={message.file} >
-                                                              <BigPlayButton position="center" />
-                                                            </Player>
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "audio" &&
-                                                          <>
-                                                            <ReactAudioPlayer
-                                                              src={message.file}
-                                                              controls
-                                                              style={{
-                                                                width: "100%"
-                                                              }}
-                                                            />
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "pdf" &&
-                                                          <>
-                                                            <button
-                                                              style={{ fontSize: "1.3rem", width: "40%" }}
-                                                              className="myButton2"
-                                                              onClick={() => {
-                                                                window.open(message.file, "_blank")
-                                                              }}>   Open PDF </button>
-                                                            {" " + getNamefromURL(message.file).substring(0, 30)}
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "txt" &&
-                                                          <>
-                                                            <button
-                                                              style={{ fontSize: "1.3rem", width: "40%" }}
-                                                              className="myButton2"
-                                                              onClick={() => {
-                                                                window.open(message.file, "_blank")
-                                                              }}>   Open TXT </button>
-                                                            {" " + getNamefromURL(message.file).substring(0, 30)}
-                                                          </>
-                                                        }
-                                                        {
-                                                          detectFileType(message.file) === "other" &&
-                                                          <>
-                                                            <button
-                                                              style={{ fontSize: "1.3rem", width: "40%" }}
-                                                              className="myButton2"
-                                                              onClick={() => {
-                                                                window.open(message.file, "_blank")
-                                                              }}>   Open File </button>
-                                                            {" " + getNamefromURL(message.file).substring(0, 30)}
-                                                          </>
-                                                        }
-                                                      </div>
-                                                    </CardBody>
-                                                    : <div />
-                                                }
                                                 {
                                                   message.message.length > 0 ?
                                                     <CardBody>
@@ -1044,50 +763,17 @@ class Main extends Component {
                                 type="file"
                                 id="upload"
                                 hidden
-                                onChange={async (e) => {
-                                  if (this.bundlr === null) {
-                                    this.bundlr = await this.setupBundlr();
-                                  }
-                                  const price = await this.bundlr.getPrice(e.target.files[0].size);
-                                  console.log(price)
-                                  const amount = this.bundlr.utils.unitConverter(price)
-                                  let fileBuffer = await readFile(e)
-                                  const balance = await this.bundlr.getLoadedBalance()
-                                  const converted = this.bundlr.utils.unitConverter(balance)
-                                  const file = {
-                                    name: e.target.files[0].name,
-                                    size: e.target.files[0].size,
-                                    type: e.target.files[0].type,
-                                  }
+                                onChange={(e) => {
                                   console.log(e.target.files[0])
                                   this.setState({
-                                    file: file,
-                                    fileBuffer: fileBuffer,
-                                    bundlerBalance: parseFloat(converted),
-                                    price: price,
-                                    amount: parseFloat(amount),
+                                    file: e.target.files[0]
                                   })
                                 }}
                                 disabled={this.state.sending}
                               />
                               <label htmlFor="upload">
                                 {
-                                  this.state.sending ? <Spinner /> :
-                                    <>
-                                      {
-                                        this.state.file !== null ?
-                                          <div
-                                            style={{
-                                              color: "green",
-                                            }}>
-                                            <AttachFileIcon />
-                                          </div>
-                                          :
-                                          <>
-                                            <AttachFileIcon />
-                                          </>
-                                      }
-                                    </>
+                                  this.state.sending ? <Spinner /> : <AttachFileIcon />
                                 }
                               </label>
                             </div>
@@ -1222,134 +908,6 @@ class Main extends Component {
                     </Row>
                   </Card>
                 </div>
-                <Card style={{ position: "absolute", right: "0px", top: "2.9vh", height: "94vh", width: "15vw" }}>
-                  {
-                    this.bundlr === null ?
-                      <>
-                        <CardTitle style={{
-                          textAlign: "center",
-                        }}>
-                          <div style={{
-                            paddingTop: "10px",
-                            paddingBottom: "10px",
-                          }}>
-                            <button
-                              style={{
-                                fontSize: "1.5vw",
-                                width: "70%",
-                              }}
-                              className='myButton'
-                              onClick={async () => {
-                                if (this.bundlr === null) {
-                                  this.bundlr = await this.setupBundlr();
-                                  this.updateBundlr();
-                                }
-                              }}
-                            >
-                              Connect Bundler
-                            </button>
-                          </div>
-                          <div style={{
-                            height: "1px",
-                            marginTop: "5px",
-                            marginBottom: "5px",
-                            width: "100%",
-                            background: "#8247e5",
-                          }} />
-                        </CardTitle>
-                      </>
-                      :
-                      <>
-                        <CardBody style={{
-                          color: "black",
-                          textAlign: "center",
-                        }}>
-                          {
-                            this.state.bundlerBalance > 0 &&
-                            <>
-                              <p>
-                                <b>Bundler Balance:</b>
-                              </p>
-                              <p>
-                                <b>
-                                  <img src={MaticLogo} alt="Matic Logo" style={{
-                                    width: "5vw",
-                                    height: "5vw",
-                                  }} />
-                                </b>
-                              </p>
-                              <p style={{
-                                fontSize: "2rem",
-                              }}>
-                                {this.state.bundlerBalance.toFixed(8)}
-                              </p>
-                            </>
-                          }
-                          <div style={{
-                            height: "1px",
-                            marginTop: "5px",
-                            marginBottom: "5px",
-                            width: "100%",
-                            background: "#8247e5",
-                          }} />
-                          <Input
-                            type="number"
-                            onChange={(e) => {
-                              this.setState({
-                                addFunds: e.target.value
-                              })
-                            }}
-                          >
-                          </Input>
-                          <button
-                            style={{
-                              fontSize: "1.5vw",
-                              width: "70%",
-                            }}
-                            className='myButton'
-                            disabled={this.state.addFunds > 0 && this.state.sending}
-                            onClick={
-                              async () => {
-                                const result = await this.bundlr.fund(parseInt(this.state.addFunds * 1e18))
-                                console.log(result)
-                              }
-                            }
-                          >
-                            Add Funds
-                          </button>
-                          <div style={{
-                            height: "1px",
-                            marginTop: "5px",
-                            marginBottom: "5px",
-                            width: "100%",
-                            background: "#8247e5",
-                          }} />
-                          <div>
-                            Transactions (files):
-                            {
-                              (this.state.messageHistory.length > 0 && !this.state.changeFlag) &&
-                              this.state.messageHistory.map((message, index) => {
-                                if (message.file !== undefined && message.file !== null && message.file !== "") {
-                                  return (
-                                    <div key={"Trans" + index}>
-                                      <a href={message.file} target='_blank' rel="noopener noreferrer">
-                                        {
-                                          getNamefromURL(message.file)
-                                        }
-                                      </a>
-                                    </div>
-                                  )
-                                }
-                                else {
-                                  return null
-                                }
-                              })
-                            }
-                          </div>
-                        </CardBody>
-                      </>
-                  }
-                </Card>
               </div>
             </>
         }

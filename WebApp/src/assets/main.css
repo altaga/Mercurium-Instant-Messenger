@@ -1,5 +1,5 @@
 html,body{
-  background: #090c10;
+  background: #DDD;
 }
 
 .App {
@@ -71,38 +71,68 @@ html,body{
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #2abcd27c;
+  background-color: #8247e5;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #2abdd2;
+  background-color: #cbbde4;
 }
 
 .myButton{
-  background: #2abcd27a;
+  background: #8247e5;
   color: rgba(255, 255, 255, 0.76);
   border-color: white;
   border-radius: 5px;
 }
 .myButton:disabled{
-  background: #1a1e29;
-  color: #2abcd23f;
+  background: #381e64;
+  color: #777;
   border-color: white;
   border-radius: 5px;
 }
 .myButton:hover{
-  background: #2abdd2;
+  background: #9066d8;
   color: white;
   border-color: white;
   border-radius: 5px;
 }
 
 .myButton:hover:disabled{
-  background: #1a1e29;
-  color: #2abcd23f;
+  color: #381e64;
+  color: #777;
   border-color: white;
   border-radius: 5px;
+}
+
+.myButton2{
+  color: #8247e5;
+  background: rgba(255, 255, 255, 0.76);
+  border-color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.myButton2:disabled{
+  color: #8247e5;
+  background: rgba(255, 255, 255, 0.5);
+  border-color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.myButton2:hover{
+  color: #8247e5;
+  background: white;
+  border-color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.myButton2:hover:disabled{
+  color: #8247e5;
+  background: rgba(255, 255, 255, 0.5);
+  border-color: white;
+  border-radius: 5px;
+  font-weight: bold;
 }

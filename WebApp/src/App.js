@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 // Router
 import {
-  Router,
+  BrowserRouter as Router,
   Route,
-  Switch
+  Routes,
 } from "react-router-dom";
 
 // Redux
@@ -15,25 +15,25 @@ import store from './redux/store';
 
 // Pages
 import Main from "./pages/main";
+
+// Utils
 import history from "./utils/history";
 
 // Cookies
 import { CookiesProvider } from 'react-cookie';
 
-
 class App extends Component {
-
   render() {
     return (
       <CookiesProvider>
-      <Provider store={store}>
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/:address" component={Main} />
-            <Route path="*" component={Main} />
-          </Switch>
-        </Router>
-      </Provider>
+        <Provider store={store}>
+          <Router history={history}>
+            <Routes>
+              <Route path="/:address" element={<Main/>} />
+              <Route path="*" element={<Main/>} />
+            </Routes>
+          </Router>
+        </Provider>
       </CookiesProvider>
     );
   }
