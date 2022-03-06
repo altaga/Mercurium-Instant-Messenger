@@ -1,9 +1,4 @@
 name: Mirror to Gitopia
-description: "Mirrors your GitHub repo on Gitopia"
-author: "Altaga"
-branding:
-  icon: arrow-up-circle
-  color: green
 
 on:
   push:
