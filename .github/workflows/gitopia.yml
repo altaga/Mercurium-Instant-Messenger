@@ -8,6 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: curl https://get.gitopia.com | bash
-      - run: echo ${{ secrets.GITOPIA_WALLET }}
-      - run: git remote add gitopia gitopia://gitopia1h5r4fg3jgy8hu3tn7hk5dyhes305u9874pfv66/MIM
+      - name: Setup Gitopia
+        run: | 
+          curl https://get.gitopia.com | bash
+      - name: Setup Secret
+        run: |
+          echo ${{ secrets.GITOPIA_WALLET }}
+      - name: Get Gitopia Repo
+        run: |
+          git-remote-gitopia gitopia://gitopia1h5r4fg3jgy8hu3tn7hk5dyhes305u9874pfv66/MIM
