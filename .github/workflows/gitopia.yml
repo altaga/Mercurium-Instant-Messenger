@@ -17,5 +17,5 @@ jobs:
       - name: Get Gitopia Repo
         run: |
           git push gitopia ${GITHUB_REF}:${{inputs.branch}} --force
-      env:
+      - env:
         GITOPIA_WALLET: ${{ secrets.GITOPIA_WALLET }}
