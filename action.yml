@@ -25,7 +25,7 @@ runs:
       run: git remote add gitopia ${{inputs.remoteUrl}}
       shell: bash
     - name: Check
-      run: echo ${{inputs.remoteUrl}}
+      run: echo ${{inputs.remoteUrl}} | bash
       shell: bash
     - name: Push to Gitopia
       run: git push gitopia ${GITHUB_REF}:${{inputs.branch}} --force
