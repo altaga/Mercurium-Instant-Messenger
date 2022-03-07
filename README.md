@@ -27,13 +27,11 @@ Click to open PolygonScan
 
 # Test the product:
 
-<a href="https://www.mercurium.site/" target="_blank" style="font-size:30px;">
-https://www.mercurium.site/ 
-</a>
+### https://www.mercurium.site/ 
 
-- Help here: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
+- Instructions here: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
 
-## Use Polygon Mainnet on Metamask Wallet!!!!
+### Use Polygon Mainnet on Metamask Wallet!!!!
     
 - Get it on: https://metamask.io/
 
@@ -142,6 +140,23 @@ NOTE: SIEMPRE SERA MAS ECONOMICO AGREGAR SALDO DESDE EL BOTON ADD FUNDS POR LA G
 - All this demo runs on the Polygon Mainnet, Matic network fees are very low to carry out the corresponding tests.
 
 # How it's built:
+
+All our chat is based on the use of transactions and interaction with a smart contract, development in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on the [Polygon](https://polygon.technology/) blockchain (mainnet), using the [Moralis](https://moralis.io/) JS SDK for interactions from the frontend, the [Metamask Wallet](https://metamask.io/) to sign all the transactions and integrated file transfer with [bundlr.network](https://bundlr.network/).
+
+First of all, we deploy our own smart contract, through the Remix IDE.
+
+<img src="./Images/remix.png">
+
+Remix Link:
+https://remix.ethereum.org/
+
+Contract Polygon Scan:
+https://polygonscan.com/address/0xf4abfb397d67babcaf7c3cc2edcf0d041be32c38
+
+Code: 
+https://github.com/altaga/Mercurium-Instant-Messenger/blob/main/Contract/Chat.sol
+
+All the chat is completely on-chain, so all the data obtained is through the Moralis JS SDK, so in order to track transactions and messages.
 
 
 
