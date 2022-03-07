@@ -10,12 +10,13 @@ import { routerParams } from "../utils/params";
 // Assets
 import SendIcon from '@mui/icons-material/Send';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
+import CachedIcon from '@mui/icons-material/Cached';
 import LinkIcon from '@mui/icons-material/Link';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Logo from "../assets/cuadrado.png";
 import githubLogo from '../assets/githubLogo.png';
-import globalLogo from '../assets/globalLogo.png';
+import gitopiaLogo from '../assets/gitopia.png';
 import MaticLogo from '../assets/matic-token.png';
 // Crypto
 import { WebBundlr } from "@bundlr-network/client";
@@ -81,8 +82,12 @@ async function connectWeb3(connector) {
 
 function getNamefromURL(url) {
   let file = url.split("/")
-  file = file[file.length - 1]
-  return file
+  file = file[file.length - 1].split(".")
+  if (file[0].length > 10) {
+    return file[0].substring(0, 10) + "..." + file[1];
+  } else {
+    return file[0] + "." + file[1];
+  }
 }
 
 function detectFileType(url) {
@@ -154,7 +159,6 @@ function mergeAndSort(a, b) {
     }
     if (item.mess.indexOf(":file:") > -1) {
       delString2 = item.mess.substring(item.mess.indexOf(":file:"), item.mess.indexOf(":filef:") + 7)
-      console.log(delString2)
       file = delString2.replace(":file:", "").replace(":filef:", "")
     }
     let json = {
@@ -232,6 +236,7 @@ class Main extends Component {
     this.updateData = null;
     this.bundlr = null;
     this.updateBundlrBalance = null;
+    this.RPCReload = null;
   }
 
   async setupBundlr() {
@@ -312,15 +317,22 @@ class Main extends Component {
           }, visible: false
         });
         let tempTokenList = ["Matic"];
-        this.state.account.tokens.forEach(item => tempTokenList.push(item.name));
+        try {
+          this.state.account.tokens.forEach(item => tempTokenList.push(item.name));
+        }
+        catch (e) {
+          // No Tokens
+        }
         this.setState({
           tokenList: tempTokenList
         })
+        console.clear()
         this.fetchInterval = setInterval(() => {
-          if (!this.state.fetchFlag) {
+          if (!this.state.fetchFlag && window.ethereum.isConnected()) {
             this.setState({
               fetchFlag: true,
             }, () => {
+              console.log("Fetching messages from account")
               this.getMessagesFromAccount(this.state.account.ethAddress, this.state.activeAddress)
             })
           }
@@ -337,65 +349,59 @@ class Main extends Component {
   }
 
   async getMessagesFromAccount(from, to) {
-    try {
-      console.log("Fetching messages from account")
-      const tempChangeFlag = this.state.changeFlag
-      const result = await this.getAndProcessMessages(from, to);
-      if (result.length > 0) {
-        if (this.state.myData.length < result.length || this.state.changeFlag) {
-          console.log("Get New Messages")
-          if (tempChangeFlag !== this.state.changeFlag) {
+    const tempChangeFlag = this.state.changeFlag
+    const result = await this.getAndProcessMessages(from, to);
+    if (result.length > 0) {
+      if (this.state.myData.length < result.length || this.state.changeFlag) {
+        console.log("Get New Messages")
+        if (tempChangeFlag !== this.state.changeFlag) {
+          this.setState({
+            messageHistory: [],
+            noMessage: false,
+            myData: [],
+            fetchFlag: false
+          })
+        }
+        else if (result.length > 0) {
+          this.setState({
+            messageHistory: result,
+            changeFlag: false
+          }, () => {
+            var elmnt = document.getElementById("ChatWindow");
+            elmnt.scrollTop = elmnt.scrollHeight;
             this.setState({
-              messageHistory: [],
+              sending: false,
+              number: 0,
+              req: false,
+              message: "",
               noMessage: false,
-              myData: [],
+              myData: result,
               fetchFlag: false
-            })
-          }
-          else if (result.length > 0) {
-            this.setState({
-              messageHistory: result,
-              changeFlag: false
-            }, () => {
-              var elmnt = document.getElementById("ChatWindow");
-              elmnt.scrollTop = elmnt.scrollHeight;
-              this.setState({
-                sending: false,
-                number: 0,
-                req: false,
-                message: "",
-                noMessage: false,
-                myData: result,
-                fetchFlag: false
-              }, console.log("OK"))
-            })
-          }
-          else {
-            this.setState({
-              noMessage: true,
-              myData: [],
-              changeFlag: false,
-              fetchFlag: false
-            })
-          }
+            }, console.log("OK"))
+          })
         }
         else {
           this.setState({
+            noMessage: true,
+            myData: [],
+            changeFlag: false,
             fetchFlag: false
           })
         }
       }
       else {
         this.setState({
-          noMessage: true,
-          myData: [],
-          changeFlag: false,
           fetchFlag: false
         })
       }
     }
-    catch (e) {
-      console.log(e)
+    else {
+      this.setState({
+        noMessage: true,
+        myData: [],
+        changeFlag: false,
+        fetchFlag: false
+      })
     }
   }
 
@@ -433,12 +439,19 @@ class Main extends Component {
 
   async checkMessages(account, to) {
     let messages = [];
-    const messagesCounter = await this.chatContract.chatCounter(account); // Check 
-    for (let i = 0; i < messagesCounter; i++) {
-      let result = await this.chatContract.chatHistory(account, i)
-      if (result.to.toLowerCase() === to.toLowerCase()) {
-        messages.push(result);
+    try {
+      const messagesCounter = await this.chatContract.chatCounter(account); // Check 
+      for (let i = 0; i < messagesCounter; i++) {
+        let result = await this.chatContract.chatHistory(account, i)
+        if (result.to.toLowerCase() === to.toLowerCase()) {
+          messages.push(result);
+        }
       }
+    }
+    catch (e) {
+      console.clear();
+      console.log("RPC Catch Error")
+      return "error"
     }
     return messages;
   }
@@ -448,6 +461,9 @@ class Main extends Component {
   async getAndProcessMessages(from, to) {
     let from_messages = await this.checkMessages(from, to);
     let to_messages = await this.checkMessages(to, from);
+    if (from_messages === "error" || to_messages === "error") {
+      return this.state.myData
+    }
     let messages = mergeAndSort(from_messages, to_messages);
     return messages;
   }
@@ -455,6 +471,7 @@ class Main extends Component {
   async updateBundlr() {
     const balance = await this.bundlr.getLoadedBalance()
     const converted = this.bundlr.utils.unitConverter(balance)
+    console.log(parseFloat(converted))
     this.setState({
       bundlerBalance: parseFloat(converted),
     })
@@ -531,12 +548,12 @@ class Main extends Component {
                           <Col>
 
                             <Row style={{ textAlign: "center" }}>
-                              <a href='https://showcase.ethglobal.com/roadtoweb3/triton-instant-messenger' target='_blank' rel="noopener noreferrer">
-                                <img src={globalLogo} alt="twitter" style={{ width: "100px", height: "100px" }} />
+                              <a href='https://testnet.gitopia.com/gitopia1h5r4fg3jgy8hu3tn7hk5dyhes305u9874pfv66/MIM' target='_blank' rel="noopener noreferrer">
+                                <img src={gitopiaLogo} alt="twitter" style={{ width: "100px", height: "100px" }} />
                               </a>
                               <p />
                               <div>
-                                ETH Global Showcase
+                                Gitopia Repo
                               </div>
                             </Row>
                           </Col>
@@ -607,17 +624,7 @@ class Main extends Component {
                                       {
                                         address.substring(0, 10) + "..." + address.substring(address.length - 10, address.length)
                                       }
-                                    </Col>{
-                                      /*
-                                    <Col style={{
-                                      marginLeft: "80px",
-                                    }}>
-                                      <button className="myButton">
-                                        x
-                                      </button>
                                     </Col>
-                                      */
-                                    }
                                   </Row>
                                 </CardBody>
                                 <div style={{
@@ -640,6 +647,34 @@ class Main extends Component {
                             <Col xs="12">
                               <div style={{ fontSize: "16px", color: "white", fontWeight: "bold" }}>
                                 Chat with {this.state.activeAddress}
+                                {
+                                  /*
+                                  <>
+                                    {"  |  "}
+                                    <button
+                                      className="myButton2"
+                                      onClick={
+                                        async () => {
+                                          clearInterval(this.fetchInterval);
+                                          console.log("Fetching messages from account")
+                                          await this.getMessagesFromAccount(this.state.account.ethAddress, this.state.activeAddress)
+                                          this.fetchInterval = setInterval(() => {
+                                            if (!this.state.fetchFlag && window.ethereum.isConnected()) {
+                                              this.setState({
+                                                fetchFlag: true,
+                                              }, () => {
+                                                console.log("Fetching messages from account")
+                                                this.getMessagesFromAccount(this.state.account.ethAddress, this.state.activeAddress)
+                                              })
+                                            }
+                                          }, 5000);
+                                        }
+                                      }>
+                                      <CachedIcon />
+                                    </button>
+                                  </>
+                                  */
+                                }
                               </div>
                             </Col>
                             <div style={{
@@ -659,12 +694,10 @@ class Main extends Component {
                                   className="myButton2"
                                   onClick={
                                     async () => {
-                                      await this.bundlr.fund(parseInt(this.state.price * 1.1))
-                                      const balance = await this.bundlr.getLoadedBalance()
-                                      const converted = this.bundlr.utils.unitConverter(balance)
-                                      this.setState({
-                                        bundlerBalance: parseFloat(converted),
-                                      })
+                                      if (this.bundlr !== null) {
+                                        let result = await this.bundlr.fund(parseInt(this.state.price * 1.1))
+                                        console.log(result)
+                                      }
                                     }
                                   }>
                                   Add these Funds
@@ -1054,11 +1087,8 @@ class Main extends Component {
                                     this.bundlr = await this.setupBundlr();
                                   }
                                   const price = await this.bundlr.getPrice(e.target.files[0].size);
-                                  console.log(price)
                                   const amount = this.bundlr.utils.unitConverter(price)
                                   let fileBuffer = await readFile(e)
-                                  const balance = await this.bundlr.getLoadedBalance()
-                                  const converted = this.bundlr.utils.unitConverter(balance)
                                   const file = {
                                     name: e.target.files[0].name,
                                     size: e.target.files[0].size,
@@ -1068,7 +1098,6 @@ class Main extends Component {
                                   this.setState({
                                     file: file,
                                     fileBuffer: fileBuffer,
-                                    bundlerBalance: parseFloat(converted),
                                     price: price,
                                     amount: parseFloat(amount),
                                   })
@@ -1166,26 +1195,6 @@ class Main extends Component {
                                     })
                                   }}
                                 />
-                                {
-                                  /*
-  <Input
-                                  type="select"
-                                  name="select"
-                                  id="exampleSelect"
-                                  style={{
-                                    width: '30%',
-                                    background: "#1a1e29",
-                                    color: "white",
-                                  }}
-                                  onChange={(e) => this.setState({tokenSelect: e.target.value})}
-                                >
-                                  {
-                                    this.state.tokenList.map((token, index) => <option key={index + "hshs"} value={token}>{token}</option>)
-                                  }
-                                </Input>
-                                  */
-                                }
-
                                 <button
                                   style={{
                                     width: "20%"
@@ -1270,7 +1279,7 @@ class Main extends Component {
                           textAlign: "center",
                         }}>
                           {
-                            this.state.bundlerBalance > 0 &&
+                            this.state.bundlerBalance >= 0 &&
                             <>
                               <p>
                                 <b>Bundler Balance:</b>
