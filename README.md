@@ -1,50 +1,51 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://main.d3lic6l5z1fp8z.amplifyapp.com) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
+<div style="text-align:center">
 
+## This is our submission for the
+## [<div style="color:#8247e5"> Arweave <> Polygon Hackathon 2022.</div>](https://arweave-polygon.devpost.com/)
+
+</div>
+
+<hr>
 
 # Mercurium Instant Messenger
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://www.mercurium.site/) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
 
 <p align="center">
 <img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
 </p>
 
-Welcome to MIM.
+## Welcome to MIM.
 
-###  Mercurium is an instant messenger built on the Solana blockchain and integrated into the Serum UI. The Dapp is fully on-chain, and allows for SOL transfer.
+Mercurium is an instant messenger built on the Polygon Mainnet and file transfer integrated with bundlr.network, Bundlr is a multi-chain layer 2 solution for Arweave. 
 
-This is our submission for the Convergence Hackathon 2022.
+<img src="./Images/app.png">
 
-#### Click here to watch our demo video:
+The Dapp is fully on-chain, allows Matic and Files transfer.
 
-[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](https://youtu.be/YVnSGGthOVE)
+[<img src="./Images/chain.png">](https://polygonscan.com/address/0xF4aBfb397D67BabcaF7C3cC2edCf0d041bE32c38)
+Click to open PolygonScan
 
-## To test the product follow this link:
-<a href="https://www.nft-arcade.online/" target="_blank" style="font-size:30px;">
-https://main.d3lic6l5z1fp8z.amplifyapp.com
+# Watch our demo video:
 
-### Use Solana devnet on the Phantom wallet!!!!
-    
-Get it on: https://phantom.app/
+[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](PENDING)
 
-Follow: https://hello-17.gitbook.io/crema-devnet-test-guide/switch-your-solana-wallet-to-devnet
-    
-More Help: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
+# Test the product:
 
-Needless to say, you need a friend to test it or you could message us via Devpost.    
-    
+<a href="https://www.mercurium.site/" target="_blank" style="font-size:30px;">
+https://www.mercurium.site/ 
 </a>
-<hr>
+
+## Use Polygon Mainnet on Metamask Wallet!!!!
+    
+- Get it on: https://metamask.io/
+
+- Follow: https://docs.polygon.technology/docs/develop/metamask/config-polygon-on-metamask/
+    
+- More Help: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
+
+Needless to say, you need a friend to test, two browsers with 2 Polygon Address or you could message us via Devpost.    
 
 # Introduction and Problem Statement:
-
-When we were researching what to hack we decided to check what kind of projects did the Serum and Solana communities had or what kind of Dapps they wanted the community to develop. 
-
-So, we found this under project Requests and grants:
-
-<img src="https://i.ibb.co/WtSLhwz/serumwish.png">
-
-Quite interesting that there was an important demand for this kind of messaging applications, when they are ubiquitous nowadays.
-
-But we had to evaluate first the market and see if there is really a problem...
 
 Messaging systems and apps such as whatsapp, telegram, wechat, facebook messenger and so many others have become ubiquitous nowadays. And not only that, but businesses and individuals have become partially dependent on these and we trust them because of the number of people that use them. With more than 3.6 billion people worldwide and over 145 billion messages being sent every day. 
 
@@ -56,101 +57,125 @@ WhatsApp was acquired for $19 billion in 2014, Telegram has over 500 million use
 
 But there's a huge privacy problem in regards to siloed enterprises controlling data. These are regarding several right’s violations mainly around privacy such as Data sharing violations like the fine of 266 million euros that Whattsapp received by the EU in September last year, Telegram’s constant issues with cyber theft mainly around bank accounts and quite a large number of cases of Blackmail. And private data leaks such as the one that happened through facebook in April 2021.
 
-<img src="http://cdn.statcdn.com/Infographic/images/normal/25691.jpeg">
+<img src="./Images/cdn-image.jpeg">
 
 Nevertheless, messaging companies are still operating under practices that suggest data governance has not been solved.
-
-We indeed have a problem!
 
 Data is the most valuable resource an individual has and through blockchain technology this privacy issue can be quenched. We think that the way to launch a competitor is through the DeFi ecosystem as it is growing at an incredible rate and Serum is one of the premium platforms for that.
 
 Having said that we decided to build it with the following characteristics:
 
-- Fully on-chain encrypted chat app, 
-- Directly integrated to Serum GUI.
-- With a great UI.
-- Allows SOL transfer between chatters!
+ - Fully on-chain encrypted chat app,
+ - Directly integrated with Polygon scan and built on Polygon.
+ - Moralis managing everything from the backend for a faster implementation.
+ - Will allow MATIC and MATIC-based token transfer between chatters!
 
 # Our Solution:
 
-A Fully on-chain instant messenger was developed in Solana, making interactions through our [Phantom Wallet](https://phantom.app/) and integrated to Serum DEX.
+A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deploying in [Polygon](https://polygon.technology/), making interactions through your [Metamask Wallet](https://metamask.io/) and integrated file transfer with [bundlr.network](https://bundlr.network/).
 
-<img src="https://i.ibb.co/tsv6prR/image.png">
+- Open the application with the following link:
 
-Once the address bar is open, put your contact's address to which we will send messages and press StartChat.
+<a href="https://www.mercurium.site/" target="_blank" style="font-size:30px;">
+https://www.mercurium.site/ 
+</a>
 
-<img src="https://i.ibb.co/7zQDBFj/image.png">
+- On the address bar, put the contact address to which we will send messages and press StartChat.
 
-Once the new tab is open, we can start sending messages to the corresponding address. 
+<img src="./Images/p1.png">
 
-<img src="https://i.ibb.co/jfSYMLV/image.png">
+- Sign in with your account (sign in providing by Moralis).
 
-In addition to that we provide a service request or send SOL to the other address in a simple way.
+<img src="./Images/p2.png">
 
-<img src="https://i.ibb.co/ckvQTjB/image.png">
+- Once the app is open, we can start sending messages to the corresponding address. 
 
-Request:
+<img src="./Images/p3.png">
 
-<img src="./Images/Request.gif" width="100%">
+- Lo mas importante es la posibilidad de mandar archivos de forma decentralizada gracias a bundlr.network. Primero presiona el boton de Connect Bundler.
 
-Send:
+<img src="./Images/p5.png">
 
-<img src="./Images/Send.gif" width="100%">
+- Presiona el boton de Sign para iniciar sesion con el servicio de Bundlr (Esto activa el WebBundlr).
 
-And as mentioned before, only transactions that have been made by signing with our Phantom Wallet are authorized.
+<img src="./Images/p6.png">
 
-<img src="https://i.ibb.co/9hRCMd3/image.png">
+- Una vea iniciada la sesion, aparecera nuestro saldo en bundlr.network, tendremos un boton para agregar fondos a nuestra cuenta y aparecera la lista de archivos que hemos mandado en cada conversacion.
 
-All this demo runs on the devnet network, in order to be able to carry out the corresponding tests. For testing purposes we deactivated encryption and added an Airdrop button. If you do not have SOL to test on Devnet to check out our platform, you can press it as many times as you want.
+<img src="./Images/p7.png">
 
-<img src="https://i.ibb.co/PgwpP0c/image.png">
+- Para mandar un archivo tendremos que cargar el archivo primero en el navegador, presionando el icono de clip alado de la barra de message.
+
+<img src="./Images/p8.png">
+
+- Una vez abra el menu de carga de archivo, seleccionar el archivo y open.
+
+<img src="./Images/p9.png">
+
+- Una vez cargado el archivo, el icono se tornara verde, ademas podremos ver el costo que tendra el mandarlo. En el caso de no tener el saldo para ello, opcionalmente podremos agregar solo el costo del archivo a nuestra cuenta con el boton Add these Funds.
+
+NOTE: SIEMPRE SERA MAS ECONOMICO AGREGAR SALDO DESDE EL BOTON ADD FUNDS POR LA GAS FEES DE LA RED DE MATIC Y BUNDLR.
+
+<img src="./Images/p10.png">
+
+- Ya con todo listo, podemos escribir nuestro mensaje y mandar nuestro archivo al presionar el icono de Send. La primera firma sera de nuestro archivo subiendose a bundlr.network.
+
+<img src="./Images/p11.png">
+
+- La segunda firma sera para mandar nuestro mensaje en el chat.
+
+<img src="./Images/p12.png">
+
+- Finalmente tendremos que esperar unos segundos a que el mensaje sea leido del contrato y aparezca en nuestra ventana de chat.
+
+<img src="./Images/p13.png">
+
+- Los archivos que pueden abrirse o reproducirse directamente en el chat son los siguientes.
+
+  - Videos:
+  <img src="./Images/p14video.png">
+  - Imagenes:
+  <img src="./Images/p14img.png">
+  - Audios (proximamente Voicenotes):
+  <img src="./Images/p14audio.png">
+
+- In addition to that we provide a service request or send Matic to the other address in a simple way.
+
+<img src="./Images/p4.png">
+
+- All this demo runs on the Polygon Mainnet, Matic network fees are very low to carry out the corresponding tests.
 
 # How it's built:
 
-All our chat is based on the use of transactions and interaction with a memo program deployed on the solana blockchain (devnet), using the Solana JS SDK for interactions from the frontend and the Phantom Wallet to sign the transactions, in addition to everything be made using the ReactJS framework.
 
-<img src="https://i.ibb.co/DCbLGwm/image.png">
 
-First of all, we deploy our own memo program, through the Solana CLI.
+# Tech we use
 
-[Pogram Code](./Program)
+## Polygon
 
-If you want to rebuild the program you will occupy the following dependencies on your computer.
+Polygon is used almost for everything, we sign every single message (as they are all on-chain) with Metamask through the mumbai testnet RPC and the MATIC transactions are done, well, through it also.
 
-- [NodeJS.](https://nodejs.org/en/) 
-- [Solana CLI.](https://docs.solana.com/cli/install-solana-cli-tools)
-- [Rust.](https://www.rust-lang.org/)
+<img src="https://i.ibb.co/f4XSr8y/image1.png">
 
-You can use our program as well as it is deploying on the blockchain.
+Here is the UI and how you can chat, and also send and request MATIC tokens.
 
-[Solana Explorer Program](https://explorer.solana.com/address/DVzMcYDk2Hs2BF5P5iHEDc3ZG7wpLHRG9WaQPCjfayug?cluster=devnet)
+You can see the code here: 
 
-All the chat is completely on-chain, so all the data obtained is through the Solana JS SDK, so in order to track transactions and messages, two instructions were used in each transaction.
+## Arweave:
 
-## Instruction 1: 
 
-Add the message to the transaction and upload it to the blockchain.
 
-    const instruction = new solanaWeb3.TransactionInstruction({
-            keys: [],
-            programId: memoPublicKey,
-            data: Buffer.from(tempMessage),
-    });
+## Moralis
 
-## Instruction 2: 
+We use Moralis for almost everything on the backend, from managing the Polygon RPC to interactions from the frontend and the Metamask Wallet to sign the transactions. 
 
-Send a transaction with 0 or more Solana in it, this instruction helps us to have the from and to information for the chat.
+<img src="https://i.ibb.co/gwJSt73/Respect-Da-Pump.png">
 
-    var transaction = new solanaWeb3.Transaction().add(
-    instruction,
-    solanaWeb3.SystemProgram.transfer({
-        fromPubkey: this.provider.publicKey,
-        toPubkey: new solanaWeb3.PublicKey(to),
-        lamports: this.state.req ? 0 : Math.round(solanaWeb3.LAMPORTS_PER_SOL * num) //Investing 1 SOL. Remember 1 Lamport = 10^-9 SOL.
-    })
-    );
+You can see the code here: https://github.com/EddOliver/Triton-Instant-Messenger-ETH/blob/main/WebPage/src/pages/main.js
 
-## Example:
+# Example transaction:
+
+CAMBIAR
 
 Here is the example of a transaction directly from the Blockchain.
 
@@ -160,12 +185,11 @@ Here is the example of a transaction directly from the Blockchain.
 
 # What's next:
 
-We will be working to improve on this Prototype, we already have the main characteristics of an instant messenger and it works seamlessly within Serum, but we need a couple more features. Regarding encryption, it is very easy to do and we could have done it at this time, we coded it and it is ready for deployment, but we opted to not include it in this version to help testers prove it is indeed On-chain which is the most difficult feature to have. 
+We will be working to improve on this Prototype, we already have the main characteristics of an instant messenger and it works seamlessly, but we need a couple more features. 
 
 Other features we will be looking at from here on are:
 
-- Token(Serum) and NFT transfer.
-- Audio, video, documents, audio notes and multimedia in general. (Perhaps an integration with Arweave for that?)
+- NFT transfer.
 - Push Notifications
 - Online Status
 - Mobile Version
@@ -173,7 +197,6 @@ Other features we will be looking at from here on are:
 Data is the ultimate resource for the coming years and in an age where we have incredible machine learning and cryptographic technologies, not to mention blockchain it is a shame that we have to rely on big tech for an application that has to become a human right. Of course, privacy is paramount and when we are dealing with a use case for money, which DeFi is, it is of utmost importance.
 
 Hopefully you liked the project and please support it. 
-
 
 # Team
 [<img src="https://img.shields.io/badge/Luis%20Eduardo-Arevalo%20Oliver-blue">](https://www.linkedin.com/in/luis-eduardo-arevalo-oliver-989703122/)
