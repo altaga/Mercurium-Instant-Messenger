@@ -1,7 +1,8 @@
 <div style="text-align:center">
 
 ## This is our submission for the
-## [<div style="color:#8247e5; text-decoration: none"> Arweave <> Polygon Hackathon 2022.</div>](https://arweave-polygon.devpost.com/)
+## <div style="color:#8247e5"> Arweave <> Polygon Hackathon 2022.</div>
+https://arweave-polygon.devpost.com/
 
 </div>
 
