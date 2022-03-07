@@ -31,13 +31,13 @@ Click to open PolygonScan
 https://www.mercurium.site/ 
 </a>
 
+- Help here: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
+
 ## Use Polygon Mainnet on Metamask Wallet!!!!
     
 - Get it on: https://metamask.io/
 
 - Follow: https://docs.polygon.technology/docs/develop/metamask/config-polygon-on-metamask/
-    
-- More Help: https://github.com/altaga/Mercurium-Instant-Messenger#our-solution
 
 Needless to say, you need a friend to test, two browsers with 2 Polygon Address or you could message us via Devpost.    
 
