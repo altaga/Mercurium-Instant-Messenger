@@ -3,8 +3,6 @@
 
 https://arweave-polygon.devpost.com/
 
-<hr>
-
 # Mercurium Instant Messenger
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://www.mercurium.site/) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
 
