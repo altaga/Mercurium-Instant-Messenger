@@ -147,52 +147,77 @@ First of all, we deploy our own smart contract, through the Remix IDE.
 
 <img src="./Images/remix.png">
 
-Remix Link:
-https://remix.ethereum.org/
+- Remix Link: https://remix.ethereum.org/
 
-Contract Polygon Scan:
-https://polygonscan.com/address/0xf4abfb397d67babcaf7c3cc2edcf0d041be32c38
+- Contract Polygon Scan: https://polygonscan.com/address/0xf4abfb397d67babcaf7c3cc2edcf0d041be32c38
 
-Code: 
+- Code: 
 https://github.com/altaga/Mercurium-Instant-Messenger/blob/main/Contract/Chat.sol
 
 All the chat is completely on-chain, so all the data obtained is through the Moralis JS SDK, so in order to track transactions and messages.
-
-
 
 # Tech we use
 
 ## Polygon
 
-Polygon is used almost for everything, we sign every single message (as they are all on-chain) with Metamask through the mumbai testnet RPC and the MATIC transactions are done, well, through it also.
+Polygon is used almost for everything, we sign every single message (as they are all on-chain) with Metamask through the mainnet RPC and the MATIC transactions are done, well, through it also.
 
-<img src="https://i.ibb.co/f4XSr8y/image1.png">
+<img src="./Images/p13.png">
 
-Here is the UI and how you can chat, and also send and request MATIC tokens.
-
-You can see the code here: 
+Here is the UI and how you can chat, send files, and also send and request MATIC tokens.
 
 ## Arweave:
 
+Bundlr Network, Arweave L2, es utilizada para mandar los archivos de forma decentralizada con el fin de hacer un chat completamente on-chain.
 
+Bundlr Setup:
+
+    let providerName = "MetaMask";
+    let currencyName = "matic"
+    const providerFunc = providerMap[providerName] // get provider entry
+    const currency = currencyMap[currencyName] // get currency entry
+    const provider = await providerFunc(currency); // 
+    const bundlr = new WebBundlr(bundlrNode, "matic", provider);
+    await bundlr.ready();
+    return bundlr; // done!
+
+Bundlr Upload File and add to message:
+
+    let response = await this.bundlr.uploader.upload(this.state.fileBuffer, this.state.file)
+    tempMessage += `:file:https://arweave.net/${response.data.id}/${this.state.file.name}:filef:`
+
+NOTE: Esta forma de agregar informacion a un mensaje esta basado en como discord agrega elementos a su chat.
+<img src="./Images/yum.png">
 
 ## Moralis
 
 We use Moralis for almost everything on the backend, from managing the Polygon RPC to interactions from the frontend and the Metamask Wallet to sign the transactions. 
 
-<img src="https://i.ibb.co/gwJSt73/Respect-Da-Pump.png">
+    await this.Moralis.start({ serverUrl, appId });
+        let user = this.Moralis.User.current();
+        if (user ? false : true) {
+            try {
+            user = await this.Moralis.authenticate({ signingMessage: "Log in using Moralis" })
+            console.log("Ok authentication");
+            }
+            catch (e) {
+            console.log("Cancel authentication");
+            window.open(`/`, "_self");
+            }
+        }
+        if (user ? false : true) {
+            console.log("User Rejected");
+        }
 
 You can see the code here: https://github.com/EddOliver/Triton-Instant-Messenger-ETH/blob/main/WebPage/src/pages/main.js
 
 # Example transaction:
 
-CAMBIAR
-
 Here is the example of a transaction directly from the Blockchain.
 
-[Solana Explorer Transaction](https://explorer.solana.com/tx/3S5FGp32xsQDCEc8sXxxxwrwJxnNQBFpfQrqRKZAqAFJc7TawxQn1KRxbTZE8aMzCeJZb9Zmge39ww92hagHT2Kc?cluster=devnet)
+[Polygon Scan Transaction](https://polygonscan.com/tx/0xf7ecccbebb7a10a0b6c8229ae84414186fbe47f5bb2d77f046a67c82e99dc547)
 
-<img src="https://i.ibb.co/FxZ4qwt/image.png">
+<img src="./Images/exmaple.png">
 
 # What's next:
 
