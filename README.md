@@ -64,6 +64,10 @@ Having said that we decided to build it with the following characteristics:
  - Moralis managing everything from the backend for a faster implementation.
  - Will allow MATIC and MATIC-based token transfer between chatters!
 
+# Diagram:
+
+<img src="./Images/diagram.png">
+
 # Our Solution:
 
 A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deploying in [Polygon](https://polygon.technology/), making interactions through your [Metamask Wallet](https://metamask.io/) and integrated file transfer with [bundlr.network](https://bundlr.network/).
