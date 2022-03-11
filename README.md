@@ -63,6 +63,7 @@ Having said that we decided to build it with the following characteristics:
  - Directly integrated with Polygon scan and built on Polygon.
  - Moralis managing everything from the backend for a faster implementation.
  - Will allow MATIC and MATIC-based token transfer between chatters!
+ - And everything will be stored on Arweave through Bundlr.network.
 
 # Diagram:
 
@@ -70,7 +71,7 @@ Having said that we decided to build it with the following characteristics:
 
 # Our Solution:
 
-A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deploying in [Polygon](https://polygon.technology/), making interactions through your [Metamask Wallet](https://metamask.io/) and integrated file transfer with [bundlr.network](https://bundlr.network/).
+A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on [Polygon](https://polygon.technology/), making interactions through your [Metamask Wallet](https://metamask.io/) and integrating file transfer with [bundlr.network](https://bundlr.network/).
 
 - Open the application with the following link:
 
