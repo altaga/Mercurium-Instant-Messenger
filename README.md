@@ -65,13 +65,16 @@ Having said that we decided to build it with the following characteristics:
  - Will allow MATIC and MATIC-based token transfer between chatters!
  - And everything will be stored on Arweave through Bundlr.network.
 
-# Diagram:
-
-<img src="./Images/diagram.png">
 
 # Our Solution:
 
-A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on [Polygon](https://polygon.technology/), making interactions through your [Metamask Wallet](https://metamask.io/) and integrating file transfer with [bundlr.network](https://bundlr.network/).
+A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on the [Polygon](https://polygon.technology/) mainnet, making interactions through [Metamask Wallet](https://metamask.io/) and integrating file transfer with [bundlr.network](https://bundlr.network/).
+
+### System's Architecture:
+
+<img src="./Images/diagram.png">
+
+### Walkthorugh:
 
 - Open the application with the following link:
 
@@ -79,11 +82,11 @@ A Fully on-chain instant messenger was developed in [Solidity](https://docs.soli
 https://www.mercurium.site/ 
 </a>
 
-- On the address bar, put the contact address to which we will send messages and press StartChat.
+- On the address bar, input the contact address to which we will send messages and press StartChat.
 
 <img src="./Images/p1.png">
 
-- Sign in with your account (sign in providing by Moralis).
+- Sign in with your account (sign in provided by Moralis).
 
 <img src="./Images/p2.png">
 
@@ -91,64 +94,64 @@ https://www.mercurium.site/
 
 <img src="./Images/p3.png">
 
-- Lo mas importante es la posibilidad de mandar archivos de forma decentralizada gracias a bundlr.network. Primero presiona el boton de Connect Bundler.
+- The most important thing is the possibility of sending files in a decentralized way thanks to bundlr.network. First press the Connect Bundler button.
 
 <img src="./Images/p5.png">
 
-- Presiona el boton de Sign para iniciar sesion con el servicio de Bundlr (Esto activa el WebBundlr).
+- Press the Sign button to login to the Bundlr service (This activates WebBundlr).
 
 <img src="./Images/p6.png">
 
-- Una vea iniciada la sesion, aparecera nuestro saldo en bundlr.network, tendremos un boton para agregar fondos a nuestra cuenta y aparecera la lista de archivos que hemos mandado en cada conversacion.
+- Once the session has started, your balance will appear in bundle.network, we will have a button to add funds to your account and the list of files that we have sent in each conversation will appear.
 
 <img src="./Images/p7.png">
 
-- Para mandar un archivo tendremos que cargar el archivo primero en el navegador, presionando el icono de clip alado de la barra de message.
+- To send a file we will have to load the file first in the browser, pressing the clip icon next to the message bar.
 
 <img src="./Images/p8.png">
 
-- Una vez abra el menu de carga de archivo, seleccionar el archivo y open.
+- Once you open the file upload menu, select the file and open.
 
 <img src="./Images/p9.png">
 
-- Una vez cargado el archivo, el icono se tornara verde, ademas podremos ver el costo que tendra el mandarlo. En el caso de no tener el saldo para ello, opcionalmente podremos agregar solo el costo del archivo a nuestra cuenta con el boton Add these Funds.
+- Once the file is uploaded, the icon will turn green, we can also see the cost of sending it. In the case of not having the balance for it, we can optionally add only the cost of the file to our account with the Add these Funds button.
 
-NOTE: SIEMPRE SERA MAS ECONOMICO AGREGAR SALDO DESDE EL BOTON ADD FUNDS POR LA GAS FEES DE LA RED DE MATIC Y BUNDLR.
+NOTE: IT WILL ALWAYS BE MORE ECONOMICAL TO ADD BALANCE FROM THE ADD FUNDS BUTTON FOR THE GAS FEES OF THE MATIC AND BUNDLR NETWORK.
 
 <img src="./Images/p10.png">
 
-- Ya con todo listo, podemos escribir nuestro mensaje y mandar nuestro archivo al presionar el icono de Send. La primera firma sera de nuestro archivo subiendose a bundlr.network.
+- With everything ready, we can write our message and send our file by pressing the Send icon. The first signature will be from your file uploaded to bundlr.network.
 
 <img src="./Images/p11.png">
 
-- La segunda firma sera para mandar nuestro mensaje en el chat.
+- The second signature will be to send our message in the chat.
 
 <img src="./Images/p12.png">
 
-- Finalmente tendremos que esperar unos segundos a que el mensaje sea leido del contrato y aparezca en nuestra ventana de chat.
+- Finally we will have to wait a few seconds for the message to be read from the contract and appear in our chat window.
 
 <img src="./Images/p13.png">
 
-- Los archivos que pueden abrirse o reproducirse directamente en el chat son los siguientes.
+- Files that can be opened or played directly in chat are:
 
   - Videos:
   <img src="./Images/p14video.png">
-  - Imagenes:
+  - Images:
   <img src="./Images/p14img.png">
-  - Audios (proximamente Voicenotes):
+  - Audio:
   <img src="./Images/p14audio.png">
 
-- In addition to that we provide a service request or send Matic to the other address in a simple way.
+- In addition to that you can request or send Matic to the other address in a simple way.
 
 <img src="./Images/p4.png">
 
-- All this demo runs on the Polygon Mainnet, Matic network fees are very low to carry out the corresponding tests.
+- All this demo runs on the Polygon Mainnet, Matic network fees are very low allowing a great number of messages and transactions at a low cost.
 
 # How it's built:
 
-All our chat is based on the use of transactions and interaction with a smart contract, development in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on the [Polygon](https://polygon.technology/) blockchain (mainnet), using the [Moralis](https://moralis.io/) JS SDK for interactions from the frontend, the [Metamask Wallet](https://metamask.io/) to sign all the transactions and integrated file transfer with [bundlr.network](https://bundlr.network/).
+Our chat is based on the use of transactions and interaction with a smart contract, developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on the [Polygon](https://polygon.technology/) blockchain (mainnet), using the [Moralis](https://moralis.io/) JS SDK for interactions from the frontend, the [Metamask Wallet](https://metamask.io/) to sign all the transactions and integrated file transfer with [bundlr.network](https://bundlr.network/).
 
-First of all, we deploy our own smart contract, through the Remix IDE.
+First of all, we deployed our own smart contract, through the Remix IDE.
 
 <img src="./Images/remix.png">
 
@@ -161,11 +164,11 @@ https://github.com/altaga/Mercurium-Instant-Messenger/blob/main/Contract/Chat.so
 
 All the chat is completely on-chain, so all the data obtained is through the Moralis JS SDK, so in order to track transactions and messages.
 
-# Tech we use
+## Tech we use
 
 ## Polygon
 
-Polygon is used almost for everything, we sign every single message (as they are all on-chain) with Metamask through the mainnet RPC and the MATIC transactions are done, well, through it also.
+Polygon is used for almost everything, we sign every single message (as they are all on-chain) with Metamask through the mainnet RPC and the MATIC transactions are done, well, through it also.
 
 <img src="./Images/p13.png">
 
@@ -173,7 +176,7 @@ Here is the UI and how you can chat, send files, and also send and request MATIC
 
 ## Arweave:
 
-Bundlr Network, Arweave L2, es utilizada para mandar los archivos de forma decentralizada con el fin de hacer un chat completamente on-chain.
+Bundlr Network and Arweave L2, are used to send the files in a decentralized way in order to make a completely on-chain chat.
 
 Bundlr Setup:
 
@@ -191,7 +194,7 @@ Bundlr Upload File and add to message:
     let response = await this.bundlr.uploader.upload(this.state.fileBuffer, this.state.file)
     tempMessage += `:file:https://arweave.net/${response.data.id}/${this.state.file.name}:filef:`
 
-NOTE: Esta forma de agregar informacion a un mensaje esta basado en como discord agrega elementos a su chat.
+NOTE: This way of adding information to a message is based on how Discord adds items to your chat.
 <img src="./Images/yum.png">
 
 ## Moralis
@@ -214,7 +217,6 @@ We use Moralis for almost everything on the backend, from managing the Polygon R
             console.log("User Rejected");
         }
 
-You can see the code here: https://github.com/EddOliver/Triton-Instant-Messenger-ETH/blob/main/WebPage/src/pages/main.js
 
 # Example transaction:
 
