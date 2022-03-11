@@ -7,22 +7,13 @@
 <img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
 </p>
 
-## Welcome to MIM.
-
 Mercurium is an instant messenger built on the Polygon Mainnet. It has file transfer integrated with bundlr.network,  a multi-chain layer 2 solution for Arweave. 
-
-<img src="./Images/app.png">
-
-The Dapp is fully on-chain, allows Matic and File transfer.
-
-[<img src="./Images/chain.png">](https://polygonscan.com/address/0xF4aBfb397D67BabcaF7C3cC2edCf0d041bE32c38)
-Click to open PolygonScan
 
 # Watch our demo video:
 
 [<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](https://www.youtube.com/watch?v=7ujeyPhLey0)
 
-# Test the product:
+## Test the product:
 
 ### https://www.mercurium.site/ 
 
@@ -64,6 +55,15 @@ Having said that we decided to build it with the following characteristics:
 
 
 # Our Solution:
+
+Mercurium is an instant messenger built on the Polygon Mainnet. It has file transfer integrated with bundlr.network,  a multi-chain layer 2 solution for Arweave. 
+
+<img src="./Images/app.png">
+
+The Dapp is fully on-chain, allows Matic and File transfer.
+
+[<img src="./Images/chain.png">](https://polygonscan.com/address/0xF4aBfb397D67BabcaF7C3cC2edCf0d041bE32c38)
+Click to open PolygonScan
 
 A Fully on-chain instant messenger was developed in [Solidity](https://docs.soliditylang.org/en/v0.8.12/), deployed on the [Polygon](https://polygon.technology/) mainnet, making interactions through [Metamask Wallet](https://metamask.io/) and integrating file transfer with [bundlr.network](https://bundlr.network/).
 
