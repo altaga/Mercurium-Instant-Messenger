@@ -12,11 +12,11 @@
 
 ## Welcome to MIM.
 
-Mercurium is an instant messenger built on the Polygon Mainnet and file transfer integrated with bundlr.network, Bundlr is a multi-chain layer 2 solution for Arweave. 
+Mercurium is an instant messenger built on the Polygon Mainnet. It has file transfer integrated with bundlr.network,  a multi-chain layer 2 solution for Arweave. 
 
 <img src="./Images/app.png">
 
-The Dapp is fully on-chain, allows Matic and Files transfer.
+The Dapp is fully on-chain, allows Matic and File transfer.
 
 [<img src="./Images/chain.png">](https://polygonscan.com/address/0xF4aBfb397D67BabcaF7C3cC2edCf0d041bE32c38)
 Click to open PolygonScan
