@@ -4,7 +4,7 @@
 ## https://arweave-polygon.devpost.com/
 
 # Mercurium Instant Messenger
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://www.mercurium.site/) [<img src="https://img.shields.io/badge/View-Video-red">](https://youtu.be/YVnSGGthOVE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://www.mercurium.site/) [<img src="https://img.shields.io/badge/View-Video-red">](https://www.youtube.com/watch?v=7ujeyPhLey0)
 
 <p align="center">
 <img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
@@ -23,7 +23,7 @@ Click to open PolygonScan
 
 # Watch our demo video:
 
-[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](PENDING)
+[<img src="https://raw.githubusercontent.com/altaga/SCUP-WWAC/master/Images/click-here-button.png" width=200>](https://www.youtube.com/watch?v=7ujeyPhLey0)
 
 # Test the product:
 
