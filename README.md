@@ -1,10 +1,7 @@
-### This is our submission for the
-### <p style="color:#8247e5"> Arweave <> Polygon Hackathon 2022.</p>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://www.mercurium.site/) [<img src="https://img.shields.io/badge/View-Video-red">](https://www.youtube.com/watch?v=7ujeyPhLey0)
 
-## https://arweave-polygon.devpost.com/
 
 # Mercurium Instant Messenger
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [<img src="https://img.shields.io/badge/View-Website-blue">](https://www.mercurium.site/) [<img src="https://img.shields.io/badge/View-Video-red">](https://www.youtube.com/watch?v=7ujeyPhLey0)
 
 <p align="center">
 <img src="https://i.ibb.co/S38pNfM/logo512.png" width="300px">
