@@ -25,7 +25,7 @@ Mercurium is an instant messenger built on the Polygon Mainnet. It has file tran
 
 - Follow: https://docs.polygon.technology/docs/develop/metamask/config-polygon-on-metamask/
 
-Needless to say, you need a friend to test, two browsers with 2 Polygon Address or you could message us via Devpost.    
+Needless to say, you need a friend to test, two browsers with two Polygon Addresses or you could message us via Devpost.    
 
 # Introduction and Problem Statement:
 
